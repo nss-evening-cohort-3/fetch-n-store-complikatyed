@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<form method="GET">
+    <select name="methods">
+        <option value="get">GET</option>
+        <option value="head">HEAD</option>
+    </select>
+    <label for="url">URL</label><input type="text" name="url" placeholder="URL">
+    <button>Fetch</button>
+</form>
+
+<h1 class="text-center">Hello Angular 1 + 2 = {{1 + 2}}</h1>
