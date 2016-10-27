@@ -29,7 +29,8 @@ namespace fands2
 
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                     "~/Scripts/angular.js",
-                    "~/Scripts/app.js"));
+                    "~/Scripts/App/app.js",
+                    "~/Scripts/App/RequestCtrl.js"));
         }
     }
 }
