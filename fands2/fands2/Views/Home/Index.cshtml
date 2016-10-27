@@ -2,13 +2,36 @@
     ViewBag.Title = "Home Page";
 }
 
-<form method="GET">
-    <select name="methods">
+
+<form class="form-horizontal"  method="GET">
+    <select id="requestedMethod" name="methods" ng-model="requestedMethod">
         <option value="get">GET</option>
         <option value="head">HEAD</option>
     </select>
-    <label for="url">URL</label><input type="text" name="url" placeholder="URL">
-    <button>Fetch</button>
+    <label for="url">URL</label><input id="requestedURL" type="text" name="url" placeholder="URL" ng-model="requestedURL">
+    <button class="btn-default" type="submit" ng-click="doURLRequest()">Fetch</button>
 </form>
 
 <h1 class="text-center">Hello Angular 1 + 2 = {{1 + 2}}</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>URL</th>
+            <th>Status Code</th>
+            <th>Method</th>
+            <th>Response Time</th>
+        </tr>
+    </thead>
+    @{
+        for (int i = 0; i < ViewBag.Responses.Count; i++)
+        {
+            <tr>
+                <td>@ViewBag.Responses[i].URL</td>
+                <td>@ViewBag.Responses[i].StatusCode</td>
+                <td>@ViewBag.Responses[i].Method</td>
+                <td>@ViewBag.Responses[i].ResponseTime</td>
+            </tr>
+        }
+    }
+</table>
