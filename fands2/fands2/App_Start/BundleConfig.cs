@@ -30,7 +30,6 @@ namespace fands2
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                     "~/Scripts/angular.js",
                     "~/Scripts/App/app.js",
-                    "~/Scripts/App/Factories/AskFactory.js",
                     "~/Scripts/App/Controllers/RequestCtrl.js"));
         }
     }

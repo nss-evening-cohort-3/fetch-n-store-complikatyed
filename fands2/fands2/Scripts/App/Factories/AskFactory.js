@@ -8,18 +8,19 @@ app.factory("AskStore", function ($q, $http) {
         let requestedURL = document.getElementById("requestedURL").value;
 
         return $q(function (resolve, reject) {
-            $http.requestedMethod(requestedURL)
-                .success(function (responseData) {
-                    responseStorage.push(responseData)
-                    console.log(responseData);
-                });
 
-        })
+            $http.requestedMethod(requestedURL)
+
+                .success(function (responseData) {
+                   responseStorage.push(responseData);
+                        resolve(queryStorage);
+                })
                 .error(function (error) {
-                    responseStorage.push(error)
-                    console.log("This is broken");
                     reject(error);
                 });
 
-    };
+        });
+    }
+
+    return { doStuff: doStuff };
 });
