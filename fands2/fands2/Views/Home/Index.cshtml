@@ -1,14 +1,37 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Request Something";
 }
+<div ng-controller="RequestCtrl">
+    <div>
+        <form class="form-horizontal"  method="GET">
+            <select name="requestedMethod" ng-model="requestedMethod">
+                <option ng-value="get">GET</option>
+                <option ng-value="head">HEAD</option>
+            </select>
+            <label for="url">URL</label><input id="requestedUrl" type="text" name="url" placeholder="URL" ng-model="requestedUrl">
+            <button class="btn-default" type="submit" ng-click="doUrlRequest()">Fetch</button>
+        </form>
+    </div>
 
-<form method="GET">
-    <select name="methods">
-        <option value="get">GET</option>
-        <option value="head">HEAD</option>
-    </select>
-    <label for="url">URL</label><input type="text" name="url" placeholder="URL">
-    <button>Fetch</button>
-</form>
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>URL</th>
+                    <th>Status Code</th>
+                    <th>Method</th>
+                    <th>Response Time</th>
+                </tr>
+            </thead>
+                <tr>
+                    <td>{{requestedUrl}}</td>
+                    <td>{{status}}</td>
+                    <td>{{requestedMethod}}</td>
+                    <td>{{response-time}}e</td>
 
-<h1 class="text-center">Hello Angular 1 + 2 = {{1 + 2}}</h1>
+               </tr>
+
+        </table>
+    </div>
+
+</div>
