@@ -1,17 +1,27 @@
 ﻿"use strict";
-app.controller("RequestCtrl", function ($scope) {
+app.controller("RequestCtrl", function ($scope, $http) {
 
-    $scope.responseStorage = [];
+    $scope.requestedMethod = document.getSelection("requestedMethod");
+    $scope.requestedUrl =  document.getElementById("requestedUrl").value;
     
-    $scope.doURLRequest = () => {
-        console.log("Somebody clicked me!");
-        AskStore.doStuff()
-        .then(function (requestResults) {
-            $scope.responseStorage = requestResults[0];
-            console.log("Stuff happened");
+    $scope.doUrlRequest = function ( requestedMethod, requestedUrl ) {
+
+        $http({
+            method: $scope.requestedMethod,
+            url: $scope.requestedUrl
+        }).then(function (response) {
+
+            $scope.status = response.status;
+
+        }, function (response) {
+            $scope.status = response.status;
         });
     }
-
 });
+
+
+
+
+
 
 
