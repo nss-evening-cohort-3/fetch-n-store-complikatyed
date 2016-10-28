@@ -1,34 +1,37 @@
 ﻿@{
     ViewBag.Title = "Request Something";
 }
+<div ng-controller="RequestCtrl">
+    <div>
+        <form class="form-horizontal"  method="GET">
+            <select name="requestedMethod" ng-model="requestedMethod">
+                <option ng-value="get">GET</option>
+                <option ng-value="head">HEAD</option>
+            </select>
+            <label for="url">URL</label><input id="requestedUrl" type="text" name="url" placeholder="URL" ng-model="requestedUrl">
+            <button class="btn-default" type="submit" ng-click="doUrlRequest()">Fetch</button>
+        </form>
+    </div>
 
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>URL</th>
+                    <th>Status Code</th>
+                    <th>Method</th>
+                    <th>Response Time</th>
+                </tr>
+            </thead>
+                <tr>
+                    <td>{{requestedUrl}}</td>
+                    <td>{{status}}</td>
+                    <td>{{requestedMethod}}</td>
+                    <td>{{response-time}}e</td>
 
-<form class="form-horizontal"  method="GET">
-    <select name="requestedMethod" ng-model="requestedMethod">
-        <option ng-value="get">GET</option>
-        <option ng-value="head">HEAD</option>
-    </select>
-    <label for="url">URL</label><input id="requestedURL" type="text" name="url" placeholder="URL" ng-model="requestedURL">
-    <button class="btn-default" type="submit" ng-click="doURLRequest()">Fetch</button>
-</form>
+               </tr>
 
-<h1 class="text-center">Hello Angular 1 + 2 = {{1 + 2}}</h1>
+        </table>
+    </div>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>URL</th>
-            <th>Status Code</th>
-            <th>Method</th>
-            <th>Response Time</th>
-        </tr>
-    </thead>
-    
-            <tr ng-repeat="response in responseStorage">
-                <td>response.URL</td>
-                <td>response.StatusCode</td>
-                <td>response.Method</td>
-                <td>response.ResponseTime</td>
-            </tr>
-
-</table>
+</div>
