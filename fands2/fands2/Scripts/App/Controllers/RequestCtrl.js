@@ -2,9 +2,12 @@
 app.controller("RequestCtrl", function ($scope, $http) {
 
     $scope.requestedMethod = document.getSelection("requestedMethod");
-    $scope.requestedUrl =  document.getElementById("requestedUrl").value;
+    $scope.requestedUrl = document.getElementById("requestedUrl").value;
+
     
-    $scope.doUrlRequest = function ( requestedMethod, requestedUrl ) {
+    $scope.doUrlRequest = function (requestedMethod, requestedUrl) {
+
+        var timeNow = Date.now();
 
         $http({
             method: $scope.requestedMethod,
@@ -12,11 +15,12 @@ app.controller("RequestCtrl", function ($scope, $http) {
         }).then(function (response) {
 
             $scope.status = response.status;
+            $scope.responseTime = Date.now() - timeNow;
 
         }, function (response) {
             $scope.status = response.status;
         });
-    }
+    };
 });
 
 
