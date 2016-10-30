@@ -2,7 +2,7 @@
 
 namespace fands2.Models
 {
-    public class ResponseModel
+    public class Response
     {
         [Key]
         public int ResponseId { get; set; }

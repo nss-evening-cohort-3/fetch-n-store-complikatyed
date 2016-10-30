@@ -5,6 +5,6 @@ namespace fands2.DAL
 {
     public class ResponseContext : DbContext
     {
-        public virtual DbSet<ResponseModel> ResponseModels { get; set; }
+        public virtual DbSet<Response> Responses { get; set; }
     }
 }

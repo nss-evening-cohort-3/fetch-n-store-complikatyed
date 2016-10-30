@@ -21,6 +21,12 @@ app.controller("RequestCtrl", function ($scope, $http) {
             $scope.status = response.status;
         });
     };
+
+    $scope.storeResponseData = function () {
+
+        console.log("Store that puppy!");
+
+    };
 });
 
 
