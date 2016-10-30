@@ -20,9 +20,14 @@ namespace fands2.DAL
             Context = _context;
         }
 
+        public void AddResponse(Response response)
+        {
+            Context.Responses.Add(response);
+            Context.SaveChanges();
+        }
+
         public List<Response> GetResponses()
         {
-            int i = 1;
             return Context.Responses.ToList();
         }
 
@@ -33,11 +38,6 @@ namespace fands2.DAL
 
         }
 
-        public void AddResponse(Response response)
-        {
-            Context.Responses.Add(response);
-            Context.SaveChanges();
-        }
 
     }
 }
